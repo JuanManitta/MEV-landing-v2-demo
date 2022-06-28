@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing MEV v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    :root{
+        --white: #FFFFFF;
+        --black: #000000;
+        --gris-clarito: #839AA8;
+        --cremita: #d3ebcd;
+        --gris-oscuro: #635666;
+        --cremita-mas-oscuro: #AEDBCE;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px; 
+    }
+
+   body{
+    padding: 0px;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
+   }
+   nav{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1.5px var(--cremita-mas-oscuro);
+    box-shadow: 17px 1px 10px var(--gris-clarito);
+    padding: 35px;
+    position: fixed;
+    align-items: center;
+    transition: 0.6s;
+   }
+   .navbar-right{
+    margin-right: 28px;
+   }
+   .navbar-right ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 42px;
+   }
+   .navbar-right ul li a{
+    padding: 9px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--gris-clarito);
+    font-size: var(--md);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+   
+   }
+   .navbar-right ul li a:hover , a:focus{
+    background-size: 100% 2px;
+   }
+   .navbarleft{
+    position: relative;
+    transition: 0.6s;
+   }
+
+   .navbarleft ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 00.6s;
+   }
+   .name{
+    margin: 0px;
+    font-size: var(--md);
+    font-weight: bold;
+    color: var(--gris-oscuro);
+    transition: 0.6s;
+   }
+   .navbarleft img{
+    position: relative;
+    width: 160px;
+    transition: 0.6s;
+    
+   }
+   .container img{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 100%;
+   }
+   .services-container{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   .services-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+   }
+
+   .shipping{
+    border-right: 1px solid black;
+   }
+   .shipping img{
+    width: 40px;
+    margin-left: 85px;
+   }
+    
+    .shipping h1{
+        font-size: var(--md);
+        font-weight: bold;
+        margin-right: 64px;
+        text-align: center;
+    }
+    .shipping p{
+        margin-right: 64px;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .product{
+        border-right: 1px solid black;
+    }
+    .product img{
+        width: 40px;
+        margin-left: 117px;
+    }
+    .product h1{
+        font-size: var(--md);
+        font-weight: bold;
+        text-align: center;
+        margin-right: 64px;
+    }
+    .product p{
+        margin-right: 64px;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .security img{
+        width: 40px;
+        margin-left: 61px;
+    }
+    .security h1{
+        font-size: var(--md);
+        font-weight: bold;
+        text-align: center;
+    }
+    .security p{
+        text-align: center;
+        margin-top: 0px;
+
+    }
+    
+    .trabajos{
+      margin-top: 100px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 16px;
+      margin-left: 24px;
+      margin-right: 24px;
+      
+    }
+    .trabajos img{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+    .quote{
+        margin-bottom: 42px;
+    }
+    .quote h1{
+        color: var(--cremita);
+        text-align: center;
+        font-weight: bold;
+    }
+    .quote p{
+        text-align: center;
+        color: var(--gris-clarito);
+        font-size: var(--sm);
+        margin: 0px 200px;
+        line-height: 26px;
+    }
+    .button-container{
+        display:inline-block;
+        position:relative;
+    }
+    .button-container a{
+        text-decoration: none;
+        position: absolute;
+        bottom:11em;
+        right:15em;
+        background-color: rgba(211, 235, 205, 0.408);
+        font-weight: 400px;
+        border-radius: 4px;
+        color: black;
+        padding:8px 24px;
+        transition: 0.6s;
+    }
+    .button-container a:hover{
+        padding:10px 28px; 
+        transition: 0.6s;
+        background-color: var(--cremita);
+    }
+
+    .secondary-btn{
+        text-align: center;
+        margin-bottom: 120px;
+    }
+    
+    .secondary-btn a{
+        text-decoration: none;
+        border: 1px solid var(--cremita-mas-oscuro);
+        border-radius: 6px;
+        bottom:11em;
+        right:15em;
+        color: var(--gris-oscuro);
+        background-color: rgb(211, 235, 205);
+        font-weight: 400px;
+        padding:10px 22px;
+        transition: 0.6s;
+    }
+    .secondary-btn a:hover{
+        padding: 18px 32px;
+        margin-left: 14px;
+        margin-bottom: 14px;
+        background-color: var(--cremita-mas-oscuro);
+        font-weight: bold;
+    }
+    .footer{
+        width: 100%;
+        height: 270px;
+        background-color: var(--gris-clarito);
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 16px;
+    }
+    .right-container{
+        text-align: end;
+        margin-right: 24px;
+    }
+    .footer-grid-right{
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+    
+         
+        
+
+    }
+    .icons-right{
+        width: 20px;
+        margin-top: 12px;
+        justify-content: end;
+        
+    }
+
+    .left-container{
+        margin-left: 24px;
+    }
+    .footer-grid{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+    }
+    .icons{
+        width: 20px;
+        margin-top: 12px;
+    }
+    .left-container h1,
+    .right-container h1{
+        font-size: 18px;
+        color: black;
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
+    .left-container p,
+    .right-container p{
+        color: var(--cremita);
+        padding-bottom: 8px;
+        font-size: var(--sm);
+    }
+    
+
+   .sticky{
+    background-color: white;
+    padding: 0px;
+    box-shadow: 10px 5px 5px var white;
+    
+   }
+   .sticky2{
+    display: none;
+   }
+  
+
+
+
+</style>
+
+
+
+
+<body>
+    <nav>
+        <div class="navbarleft">
+            <ul>
+                <li>
+                    <img src="./img/Logo pequeño.png" alt="">
+
+                </li>
+                <li>
+                    <p class="name">ESTILO INDUSTRIAL <br> 
+                        Y HERRERIA</p>
+
+                </li>
+            </ul>
+        </div>
+            <div class="navbar-right">
+                <ul>
+                    <li>
+                        <a href="/">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="doble" href="/">Trabajos realizados</a>
+                    </li>
+                    <li>
+                        <a href="/">Contactanos</a>
+                    </li>
+                    <li>
+                        <a class="doble" href="/">Quienes somos</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <div class="container">
+        <img src="./img/Tu imaginacion es el limite.png" alt="">
+    </div>
+    <div class="services-container">
+        <div class="services-row">
+            <div class="shipping">
+                <img src="./img/shipping.png" alt="">
+                <h1>ENVIOS GRATIS</h1>
+                <p>Para envios mayores a 5000</p>
+            </div>
+
+            <div class="product">
+                <img src="./img/credit card.png" alt="">
+                <h1>TRABAJOS PERSONALIZADOS</h1>
+                <p>Vos lo imaginas, nosotros lo hacemos</p>
+            </div>
+            <div class="security">
+                <img src="./img/lock.png" alt="">
+                <h1>SITIO SEGURO</h1>
+                <p>Protegemos tus datos</p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="biblioteca">
+        <div class="trabajos">
+            <div class="button-container">
+                <img src="./img/1.png" alt="">
+                <a  href="/">VER MAS</a>
+            </div>
+            <div class="button-container">
+                <img src="./img/2.png" alt="">
+                <a  href="/">VER MAS</a>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        <h1>INSPIRADOS EN EL ESTILO INDUSTRIAL</h1>
+        <p>Unos kilos de hierro, un poco de creatividad y mucha pasión por nuestro trabajo. Esta es la fórmula para todo lo que producimos. Decoramos tu espacio con originales diseños artesanales en muebles industriales. Fabricamos a medida... ¡Tu imaginación es el límite!</p>
+    </div>
+    <div class="secondary-btn">
+            <a href="/">CONTACTANOS</a>
+    </div>
+
+    <div>
+        <footer class="footer">
+            <div class="left-container">
+                <h1>CONTACTANOS</h1>
+                <div class="footer-grid">
+                    <img class="icons" src="./img/phone.png" alt="">
+                    <P>2214080405 </P>
+                </div>
+                <div class="footer-grid">
+                    <img class="icons" src="./img/mail.png" alt="">
+                    <p>mevherreria@gmail.com</p> 
+
+                </div>
+                <div class="footer-grid">
+                    <img class="icons" src="./img/ubication.png" alt="">
+                    <p>La Plata, Buenos Aires</p>
+
+                </div>
+
+            </div>
+            <div class="right-container">
+                <h1>REDES SOCIALES</h1>
+                <div class="footer-grid-right">
+                    <p>Instagram</p>
+                    <img src="./img/instagram.png" alt="" class="icons-right">
+
+                </div>
+                <div class="footer-grid-right">
+                    <p>Facebook</p>
+                    <img src="./img/facebook.png" alt="" class="icons-right">
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var nav = document.querySelector("nav");
+                nav.classList.toggle("sticky", window.scrollY > 0);
+            });
+            window.addEventListener("scroll", function(){
+                var div = document.querySelector("div");
+                div.classList.toggle("sticky2", scrollY > 0)
+            });
+        </script>
+    
+</body>
+</html>
